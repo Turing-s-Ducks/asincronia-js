@@ -77,17 +77,30 @@ hazAlgo()
 
 new Promise((resolver, rechazar) => {
     console.log('Inicial');
-
     resolver();
-})
-    .then(() => {
-        throw new Error('Algo falló');
+}).then(() => {
+    throw new Error('Algo falló');
+}).catch(() => {
+    console.log('Haz aquello');
+}).then(() => {
+    console.log('Haz esto sin que importe lo que sucedió antes');
+});
 
-        console.log('Haz esto');
-    })
-    .catch(() => {
-        console.log('Haz aquello');
-    })
-    .then(() => {
-        console.log('Haz esto sin que importe lo que sucedió antes');
-    });
+
+
+//  Ejemplo de promise
+
+const promise = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        // if (Math.random() < 0.5) {
+        if (true === true) {
+            resolve("hello world");
+        } else {
+            reject(new Error('Hello error!'));
+        }
+    }, 2000);
+});
+
+promise.then(msg => msg.toUpperCase())
+    .then(msg => console.log('message', msg))
+    .catch(err => console.log('Error', err));
