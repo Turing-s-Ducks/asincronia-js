@@ -1,5 +1,7 @@
 // https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Sentencias/funcion_asincrona
 // https://javascript.info/async-await
+// https://www.adictosaltrabajo.com/2017/02/09/asyncawait-en-javascript/
+
 const promisefunction = () => new Promise((resolve, reject) => {
     setTimeout(() => {
         // if (Math.random() < 0.5) {
